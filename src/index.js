@@ -151,6 +151,9 @@ exports.createUploadLink = ({
       const { controller, signal } = createSignalIfSupported()
       if (controller) options.signal = signal
 
+      // Pass operation to custom fetch
+      options.operation = operation
+
       linkFetch(uri, options)
         .then(response => {
           // Forward the response on the context.
